@@ -1,0 +1,105 @@
+:root {
+    --primary-color: #FC4C02; /* Strava Orange */
+    --secondary-color: #2D2D2D;
+    --background-color: #F8F9FA;
+    --text-color: #333;
+    --white: #ffffff;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--white);
+    padding: 80px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.logo h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.tagline {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+.sub-tagline {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: #000;
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Features */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 60px 20px;
+}
+
+.feature-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.feature-card h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+/* Footer */
+.footer {
+    padding: 40px 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
