@@ -10,15 +10,27 @@
 </head>
 <body>
     <header class="hero">
-        <div class="container">
-            <div class="logo">
-                <img src="icon.png" alt="RouteArt Logo" width="120" height="120">
-                <h1>RouteArt</h1>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="logo">
+                    <img src="icon.png" alt="RouteArt Logo" width="80" height="80">
+                    <h1>RouteArt</h1>
+                </div>
+                <p class="tagline">Turn Your Strava Routes into Art.</p>
+                <p class="sub-tagline">Create stunning visualizations of your Strava activities in seconds.</p>
+                <div class="cta-buttons">
+                    <a href="https://apps.apple.com/app/routeart-app/id6756786050" class="btn btn-primary">Download on the App Store</a>
+                </div>
             </div>
-            <p class="tagline">Turn Your Strava Routes into Art.</p>
-            <p class="sub-tagline">Create stunning visualizations of your Strava activities in seconds.</p>
-            <div class="cta-buttons">
-                <a href="https://apps.apple.com/app/routeart-app/id6756786050" class="btn btn-primary">Download on the App Store</a>
+            <div class="hero-visual">
+                <div class="carousel">
+                    <div class="carousel-track">
+                        <img src="screenshots/1.png" alt="RouteArt Activity List">
+                        <img src="screenshots/2.png" alt="RouteArt Map Editor">
+                        <img src="screenshots/3.png" alt="RouteArt Customization">
+                        <img src="screenshots/4.png" alt="RouteArt Sharing">
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -26,35 +38,38 @@
     <section class="features container">
         <div class="feature-card">
             <h2>Connect</h2>
-            <p>Seamlessly link your Strava account to access all your activities.</p>
+            <p>Link your Strava account.</p>
         </div>
         <div class="feature-card">
             <h2>Customize</h2>
-            <p>Choose from beautiful map styles, colors, and overlays to match your vibe.</p>
+            <p>Choose maps, colors, and overlays.</p>
         </div>
         <div class="feature-card">
             <h2>Share</h2>
-            <p>Export high-quality images to share on Instagram, Strava, and more.</p>
-        </div>
-    </section>
-
-    <section class="screenshots">
-        <div class="container">
-            <h2>See it in Action</h2>
-            <div class="screenshot-grid">
-                <img src="screenshots/1.png" alt="RouteArt Activity List">
-                <img src="screenshots/2.png" alt="RouteArt Map Editor">
-                <img src="screenshots/3.png" alt="RouteArt Customization">
-                <img src="screenshots/4.png" alt="RouteArt Sharing">
-            </div>
+            <p>Export high-quality images.</p>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 RouteArt. All rights reserved.</p>
-            <p><a href="privacy.html">Privacy Policy</a> | <a href="mailto:support@routeart.app">Support</a></p>
+            <p>&copy; 2025 RouteArt. All rights reserved. <a href="privacy.html">Privacy</a> | <a href="mailto:support@routeart.app">Support</a></p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.querySelector('.carousel-track');
+            const images = track.querySelectorAll('img');
+            let index = 0;
+
+            function nextSlide() {
+                index = (index + 1) % images.length;
+                const offset = index * 100; // Move 100% per slide
+                track.style.transform = `translateX(-${offset}%)`;
+            }
+
+            setInterval(nextSlide, 3000); // Change slide every 3 seconds
+        });
+    </script>
 </body>
 </html>
