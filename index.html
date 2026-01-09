@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RouteArt - Visualize Your Strava Routes</title>
+    <title>routeart - Visualize Your Strava Routes</title>
     <link rel="stylesheet" href="style.css">
-    <meta name="description" content="Turn your Strava activities into beautiful, shareable art with RouteArt.">
+    <meta name="description" content="Turn your Strava activities into beautiful, shareable art with routeart.">
     <link rel="icon" type="image/png" href="../assets/branding/favicon.png">
 </head>
 <body>
@@ -13,24 +13,37 @@
         <div class="container hero-container">
             <div class="hero-content">
                 <div class="logo">
-                    <img src="icon.png" alt="RouteArt Logo" width="80" height="80">
-                    <h1>RouteArt</h1>
+                    <img src="icon.png" alt="routeart Logo" width="64" height="64">
+                    <h1>routeart</h1>
                 </div>
-                <p class="tagline">Turn Your Strava Routes into Art.</p>
-                <p class="sub-tagline">Create stunning visualizations of your Strava activities in seconds.</p>
-                <div class="cta-buttons">
-                    <a href="https://apps.apple.com/app/routeart-app/id6756786050" class="btn btn-primary">Download on the App Store</a>
+                <p class="tagline">Turn Your Strava Routes into Art</p>
+            </div>
+            
+            <div class="hero-visual-row">
+                <div class="phone-frame active">
+                    <img src="screenshots/1.png" alt="routeart Activity List">
+                </div>
+                <div class="phone-frame featured">
+                    <img src="screenshots/2.png" alt="routeart Map Editor">
+                </div>
+                <div class="phone-frame">
+                    <img src="screenshots/3.png" alt="routeart Customization">
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="carousel">
-                    <div class="carousel-track">
-                        <img src="screenshots/1.png" alt="RouteArt Activity List">
-                        <img src="screenshots/2.png" alt="RouteArt Map Editor">
-                        <img src="screenshots/3.png" alt="RouteArt Customization">
-                        <img src="screenshots/4.png" alt="RouteArt Sharing">
-                    </div>
-                </div>
+
+            <div class="cta-buttons">
+                <a href="https://apps.apple.com/app/routeart-app/id6756786050" class="btn btn-primary">
+                    <svg viewBox="0 0 384 512" width="20" height="20" fill="currentColor" style="margin-right: 8px; margin-bottom: -2px;">
+                        <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-11.4 69.5-34.3z"/>
+                    </svg>
+                    Download on App Store
+                </a>
+                <a href="#" class="btn btn-secondary disabled" onclick="return false;">
+                    <svg viewBox="0 0 576 512" width="20" height="20" fill="currentColor" style="margin-right: 8px; margin-bottom: -2px;">
+                        <path d="M420.55,301.93a24,24,0,1,1,24-24,24,24,0,0,1-24,24m-265.1,0a24,24,0,1,1,24-24,24,24,0,0,1-24,24m273.7-144.48,47.94-83a10,10,0,1,0-17.27-9.94l-48.35,84a302.3,302.3,0,0,0-246.94,0l-48.35-84a10,10,0,1,0-17.27,9.94l47.94,83C64.53,202.22,8.24,285.55,0,384H576c-8.24-98.45-64.54-181.78-146.85-226.55"/>
+                    </svg>
+                    Android Coming Soon
+                </a>
             </div>
         </div>
     </header>
@@ -52,23 +65,28 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 RouteArt. All rights reserved. <a href="privacy.html">Privacy</a> | <a href="mailto:support@routeart.app">Support</a></p>
+            <p>&copy; 2025 routeart. All rights reserved. <a href="privacy.html">Privacy</a> | <a href="mailto:support@routeart.app">Support</a></p>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const track = document.querySelector('.carousel-track');
-            const images = track.querySelectorAll('img');
-            let index = 0;
-
-            function nextSlide() {
-                index = (index + 1) % images.length;
-                const offset = index * 100; // Move 100% per slide
-                track.style.transform = `translateX(-${offset}%)`;
+            const frames = document.querySelectorAll('.phone-frame');
+            let currentIndex = 0;
+            
+            // Only start carousel if we found frames
+            if (frames.length > 0) {
+                setInterval(() => {
+                    // Remove active class from current
+                    frames[currentIndex].classList.remove('active');
+                    
+                    // Move to next
+                    currentIndex = (currentIndex + 1) % frames.length;
+                    
+                    // Add active class to next
+                    frames[currentIndex].classList.add('active');
+                }, 3500); // 3.5 seconds per slide
             }
-
-            setInterval(nextSlide, 3000); // Change slide every 3 seconds
         });
     </script>
 </body>
