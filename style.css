@@ -166,39 +166,93 @@ body {
 .features {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    padding: 60px 20px;
+    gap: 20px;
+    padding: 40px 20px;
 }
 
 .feature-card {
     background: var(--white);
-    padding: 30px;
-    border-radius: 16px;
+    padding: 20px;
+    border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.02);
     border: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(252, 76, 2, 0.1); /* Light Orange */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    color: var(--primary-color);
+}
+
+.feature-icon .material-icons {
+    font-size: 24px;
+}
+
+.feature-card h2 {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    margin: 0 0 8px 0;
+}
+
+.feature-card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.4;
 }
 
 /* Responsive adjustments */
 @media (max-width: 900px) {
+    /* Compact Vertical Spacing */
+    .hero {
+        padding-top: 20px;
+        padding-bottom: 30px;
+    }
+
+    .hero-container {
+        gap: 15px;
+    }
+
+    .logo {
+        margin-bottom: 5px;
+    }
+
+    .logo h1 {
+        font-size: 1.8rem;
+    }
+
+    .tagline {
+        font-size: 1.1rem;
+        margin-top: 0;
+        margin-bottom: 5px;
+        padding: 0 10px;
+    }
+
+    .cta-buttons {
+        margin-top: 15px;
+    }
+
     .features {
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
-    .logo h1 {
-        font-size: 2.2rem;
-    }
-
-    .tagline {
-        font-size: 1.3rem;
-    }
-
     /* Mobile Carousel Logic */
     .hero-visual-row {
         position: relative;
-        width: 280px;
-        height: 606px; /* 280 * (19.5/9) */
-        margin: 20px auto 0;
+        /* Slightly smaller to fit on screen with buttons: 240px width */
+        width: 240px; 
+        height: 520px; /* 240 * (19.5/9) approx */
+        margin: 10px auto 0;
         display: block;
         perspective: none;
         overflow: visible; /* Show shadows */
@@ -216,15 +270,15 @@ body {
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.8s ease-in-out;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
         transform: scale(1) !important; 
-        border: 8px solid #333;
-        border-radius: 36px;
+        border: 6px solid #333; /* Slightly thinner bezel for smaller size */
+        border-radius: 30px;
     }
 
     .phone-frame.featured {
         max-width: none;
-        border-width: 8px;
+        border-width: 6px;
     }
 
     .phone-frame.active {
