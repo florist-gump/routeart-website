@@ -25,73 +25,81 @@ body {
 /* Hero Section */
 .hero {
     background-color: var(--white);
-    padding: 60px 0; /* Reduced padding */
+    padding: 60px 0 80px; /* Increased bottom padding */
     border-bottom: 1px solid #eee;
-    overflow: hidden; /* For carousel containment */
+    overflow: hidden;
 }
 
 .hero-container {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column; /* Stack vertically */
+    align-items: center;    /* Center horizontally */
+    justify-content: center;
     gap: 40px;
-    text-align: left; /* Reset alignment for flex child */
+    text-align: center;     /* Center text */
 }
 
 .hero-content {
-    flex: 1;
-    max-width: 500px;
+    width: 100%;
+    max-width: 700px;       /* Limit width for readability */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .logo {
     display: flex;
     align-items: center;
+    justify-content: center; /* Center logo */
     gap: 15px;
     margin-bottom: 20px;
 }
 
 .logo h1 {
-    font-size: 2.5rem; /* Slightly smaller */
+    font-size: 3rem;       /* Larger title */
     margin: 0;
     color: var(--secondary-color);
 }
 
 .tagline {
-    font-size: 1.5rem; /* Slightly smaller */
+    font-size: 1.8rem;     /* Larger tagline */
     font-weight: bold;
     color: var(--primary-color);
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .sub-tagline {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #666;
     margin-bottom: 30px;
+    max-width: 500px;      /* Prevent line from getting too long */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Hero Visual & Carousel */
 .hero-visual {
-    flex: 1;
+    width: 100%;
     display: flex;
     justify-content: center;
-    max-width: 300px; /* Constrain phone width */
+    max-width: 280px;      /* Slightly smaller phone width for "compactness" */
 }
 
 .carousel {
     width: 100%;
-    border-radius: 20px; /* Phone-like rounded corners */
+    border-radius: 36px;   /* More modern rounded corners */
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-    border: 4px solid #333; /* Phone bezel */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2); /* Softer, larger shadow */
+    border: 8px solid #333; /* Thicker phone bezel */
     background: #000;
-    aspect-ratio: 9 / 19.5; /* Typical phone aspect ratio */
+    aspect-ratio: 9 / 19.5;
     position: relative;
 }
 
 .carousel-track {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smoother easing */
     height: 100%;
 }
 
@@ -168,21 +176,28 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    .hero {
+        padding: 40px 0 60px;
+    }
+
     .hero-container {
-        flex-direction: column;
-        text-align: center;
         gap: 30px;
     }
 
-    .hero-content {
-        max-width: 100%;
+    .logo h1 {
+        font-size: 2.2rem;
     }
-    
-    .logo {
-        justify-content: center;
+
+    .tagline {
+        font-size: 1.4rem;
+    }
+
+    .sub-tagline {
+        font-size: 1rem;
+        padding: 0 10px;
     }
 
     .hero-visual {
-        max-width: 260px; /* Slightly smaller on mobile */
+        max-width: 240px; /* Slightly smaller on mobile */
     }
 }
